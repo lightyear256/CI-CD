@@ -14,4 +14,4 @@ jobs:
           touch /home/runner/.ssh/known_hosts
           echo "${{ secrets.KNOWN_HOSTS }}" &> /home/runner/.ssh/known_hosts
           chmod 700 /home/runner/ssh_key
-          ssh -i ~/ssh_key root@139.59.47.180 -t "cd CI-CD/ && git pull origin main && source /root/.nvm/nvm.sh && nvm use 22.13.1 && npm install -g pnpm && pnpm install && pnpm run build && pm2 restart fe-sever && pm2 restart http-sever && pm2 restart ws-sever"
+          ssh -i ~/ssh_key root@139.59.47.180 -t "cd CI-CD/ && git pull origin main && /root/.nvm/versions/node/v22.13.1/bin/npm install -g pnpm && /root/.nvm/versions/node/v22.13.1/bin/pnpm install && /root/.nvm/versions/node/v22.13.1/bin/pnpm run build && pm2 restart fe-sever && pm2 restart http-sever && pm2 restart ws-sever"
